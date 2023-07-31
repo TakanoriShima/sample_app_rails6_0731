@@ -1,0 +1,15 @@
+<!-- 下記のコードに変更 -->
+<div class="clearfix">
+<% @lists.each do |list| %>
+  <div class="list-box">
+    <%#= attachment_image_tag list, :image, :fill, 200, 200, format: 'jpeg' %>
+    <% if list.image.attached? %>
+      <%= image_tag list.image, :size => '200x200' %>
+    <% end %>
+    <div class="list-comment">
+      <span class="list-body"><%= list.body %></span>
+      <span class="list-title"><%=link_to list.title, todolist_path(list.id) %></span>
+    </div>
+  </div>
+<% end %>
+</div>
